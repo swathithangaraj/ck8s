@@ -1,0 +1,127 @@
+2020-05-28 07:38:11,382 DEBUG    root            Loaded Command Group: [u'gcloud', u'builds']
+2020-05-28 07:38:11,435 DEBUG    root            Loaded Command Group: [u'gcloud', u'builds', u'submit']
+2020-05-28 07:38:11,474 DEBUG    root            Running [gcloud.builds.submit] with arguments: [--tag: "gcr.io/learning-261705/quickstart-image"]
+2020-05-28 07:38:12,345 INFO     root            Not using ignore file.
+2020-05-28 07:38:12,346 INFO     ___FILE_ONLY___ Creating temporary tarball archive of 3 file(s) totalling 160 bytes before compression.
+
+2020-05-28 07:38:12,350 DEBUG    root            Added [1]
+2020-05-28 07:38:12,351 DEBUG    root            Added [quickstart.sh]
+2020-05-28 07:38:12,352 DEBUG    root            Added [Dockerfile]
+2020-05-28 07:38:12,352 INFO     ___FILE_ONLY___ Uploading tarball of [.] to [gs://learning-261705_cloudbuild/source/1590651491.56-6e76fd82a3194543890b58e2ae1d4125.tgz]
+
+2020-05-28 07:38:12,353 INFO     root            Uploading [/tmp/tmppKRDpN/file.tgz] to [learning-261705_cloudbuild/source/1590651491.56-6e76fd82a3194543890b58e2ae1d4125.tgz]
+2020-05-28 07:38:12,512 DEBUG    root            submitting build: <Build
+ images: [u'gcr.io/learning-261705/quickstart-image']
+ secrets: []
+ source: <Source
+ storageSource: <StorageSource
+ bucket: u'learning-261705_cloudbuild'
+ generation: 1590651492454947
+ object: u'source/1590651491.56-6e76fd82a3194543890b58e2ae1d4125.tgz'>>
+ steps: [<BuildStep
+ args: [u'build', u'--network', u'cloudbuild', u'--no-cache', u'-t', u'gcr.io/learning-261705/quickstart-image', u'.']
+ env: []
+ name: u'gcr.io/cloud-builders/docker'
+ secretEnv: []
+ volumes: []
+ waitFor: []>]
+ tags: []>
+2020-05-28 07:38:13,174 INFO     ___FILE_ONLY___ Created [https://cloudbuild.googleapis.com/v1/projects/learning-261705/builds/6771ef76-20cc-47ce-b6de-1287f00b87ad].
+
+2020-05-28 07:38:13,175 INFO     ___FILE_ONLY___ Logs are available at [https://console.cloud.google.com/cloud-build/builds/6771ef76-20cc-47ce-b6de-1287f00b87ad?project=91861710714].
+
+2020-05-28 07:38:13,263 DEBUG    root            GCS logfile url is https://storage.googleapis.com/91861710714.cloudbuild-logs.googleusercontent.com/log-6771ef76-20cc-47ce-b6de-1287f00b87ad.txt
+2020-05-28 07:38:13,320 DEBUG    root            Reading GCS logfile: 404 (no log yet; keep polling)
+2020-05-28 07:38:14,455 DEBUG    root            Reading GCS logfile: 404 (no log yet; keep polling)
+2020-05-28 07:38:15,519 DEBUG    root            Reading GCS logfile: 416 (no new content; keep polling)
+2020-05-28 07:38:16,596 DEBUG    root            Reading GCS logfile: 200 (read 199 bytes)
+2020-05-28 07:38:16,597 INFO     ___FILE_ONLY___ ----------------------------------------------- REMOTE BUILD OUTPUT -----------------------------------------------
+
+2020-05-28 07:38:16,597 INFO     ___FILE_ONLY___ starting build "6771ef76-20cc-47ce-b6de-1287f00b87ad"
+
+FETCHSOURCE
+Fetching storage object: gs://learning-261705_cloudbuild/source/1590651491.56-6e76fd82a3194543890b58e2ae1d4125.tgz#1590651492454947
+
+2020-05-28 07:38:17,660 DEBUG    root            Reading GCS logfile: 416 (no new content; keep polling)
+2020-05-28 07:38:18,765 DEBUG    root            Reading GCS logfile: 416 (no new content; keep polling)
+2020-05-28 07:38:19,892 DEBUG    root            Reading GCS logfile: 206 (read 363 bytes)
+2020-05-28 07:38:19,893 INFO     ___FILE_ONLY___ Copying gs://learning-261705_cloudbuild/source/1590651491.56-6e76fd82a3194543890b58e2ae1d4125.tgz#1590651492454947...
+/ [0 files][    0.0 B/  265.0 B]                                                / [1 files][  265.0 B/  265.0 B]                                                
+Operation completed over 1 objects/265.0 B.                                      
+
+2020-05-28 07:38:20,997 DEBUG    root            Reading GCS logfile: 206 (read 69 bytes)
+2020-05-28 07:38:20,997 INFO     ___FILE_ONLY___ BUILD
+Already have image (with digest): gcr.io/cloud-builders/docker
+
+2020-05-28 07:38:22,105 DEBUG    root            Reading GCS logfile: 206 (read 372 bytes)
+2020-05-28 07:38:22,105 INFO     ___FILE_ONLY___ Sending build context to Docker daemon  4.096kB
+Step 1/3 : FROM alpine
+latest: Pulling from library/alpine
+Digest: sha256:39eda93d15866957feaee28f8fc5adb545276a64147445c64992ef69804dbf01
+Status: Downloaded newer image for alpine:latest
+ ---> f70734b6a266
+Step 2/3 : COPY quickstart.sh /
+ ---> 66adea38349f
+Step 3/3 : CMD ["/quickstart.sh"]
+ ---> Running in 93787e576efb
+
+2020-05-28 07:38:23,184 DEBUG    root            Reading GCS logfile: 206 (read 371 bytes)
+2020-05-28 07:38:23,184 INFO     ___FILE_ONLY___ Removing intermediate container 93787e576efb
+ ---> fbca09c857b7
+Successfully built fbca09c857b7
+Successfully tagged gcr.io/learning-261705/quickstart-image:latest
+PUSH
+Pushing gcr.io/learning-261705/quickstart-image
+The push refers to repository [gcr.io/learning-261705/quickstart-image]
+84b259ec3ff4: Preparing
+3e207b409db3: Preparing
+3e207b409db3: Layer already exists
+
+2020-05-28 07:38:24,267 DEBUG    root            Reading GCS logfile: 206 (read 21 bytes)
+2020-05-28 07:38:24,267 INFO     ___FILE_ONLY___ 84b259ec3ff4: Pushed
+
+2020-05-28 07:38:25,355 DEBUG    root            Reading GCS logfile: 416 (no new content; keep polling)
+2020-05-28 07:38:26,474 DEBUG    root            Reading GCS logfile: 206 (read 103 bytes)
+2020-05-28 07:38:26,474 INFO     ___FILE_ONLY___ latest: digest: sha256:c1933d9c77c522266cad13a9a535ce9b9497088553a7655877964afbf3974624 size: 735
+DONE
+
+2020-05-28 07:38:26,475 INFO     ___FILE_ONLY___ -------------------------------------------------------------------------------------------------------------------
+
+
+2020-05-28 07:38:26,476 INFO     root            Display format: "
+        table(
+          id,
+          createTime.date('%Y-%m-%dT%H:%M:%S%Oz', undefined='-'),
+          duration(start=startTime,end=finishTime,precision=0,calendar=false,undefined="  -").slice(2:).join(""):label=DURATION,
+          build_source(undefined="-"):label=SOURCE,
+          build_images(undefined="-"):label=IMAGES,
+          status
+        )
+      "
+2020-05-28 07:38:26,495 INFO     ___FILE_ONLY___ ID
+2020-05-28 07:38:26,495 INFO     ___FILE_ONLY___                                     
+2020-05-28 07:38:26,495 INFO     ___FILE_ONLY___ CREATE_TIME
+2020-05-28 07:38:26,496 INFO     ___FILE_ONLY___                 
+2020-05-28 07:38:26,496 INFO     ___FILE_ONLY___ DURATION
+2020-05-28 07:38:26,496 INFO     ___FILE_ONLY___   
+2020-05-28 07:38:26,496 INFO     ___FILE_ONLY___ SOURCE
+2020-05-28 07:38:26,496 INFO     ___FILE_ONLY___                                                                                      
+2020-05-28 07:38:26,496 INFO     ___FILE_ONLY___ IMAGES
+2020-05-28 07:38:26,496 INFO     ___FILE_ONLY___                                              
+2020-05-28 07:38:26,496 INFO     ___FILE_ONLY___ STATUS
+2020-05-28 07:38:26,496 INFO     ___FILE_ONLY___ 
+
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___ 6771ef76-20cc-47ce-b6de-1287f00b87ad
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___   
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___ 2020-05-28T07:38:12+00:00
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___   
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___ 12S
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___        
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___ gs://learning-261705_cloudbuild/source/1590651491.56-6e76fd82a3194543890b58e2ae1d4125.tgz
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___   
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___ gcr.io/learning-261705/quickstart-image (+1 more)
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___   
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___ SUCCESS
+2020-05-28 07:38:26,497 INFO     ___FILE_ONLY___ 
+
+2020-05-28 07:38:26,498 DEBUG    root            SDK update checks are disabled.

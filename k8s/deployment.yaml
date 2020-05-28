@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: html-server-image:v1
+  name: html-server-image:v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: html-server-image:v1
+  template:
+    metadata:
+      labels:
+        run: html-server-image:v1
+    spec:
+      containers:
+      - image: gcr.io/learning-261705/html-server-image:v1:latest
+        name: html-server-image:v1
+        ports:
+        - containerPort: 80

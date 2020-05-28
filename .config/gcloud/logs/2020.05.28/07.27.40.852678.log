@@ -1,0 +1,7 @@
+2020-05-28 07:27:40,858 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
+2020-05-28 07:27:40,866 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'get_value']
+2020-05-28 07:27:40,869 DEBUG    root            Running [gcloud.config.get-value] with arguments: [SECTION/PROPERTY: "project"]
+2020-05-28 07:27:40,882 INFO     root            Display format: "value(.)"
+2020-05-28 07:27:40,883 INFO     ___FILE_ONLY___ learning-261705
+
+2020-05-28 07:27:40,883 DEBUG    root            SDK update checks are disabled.

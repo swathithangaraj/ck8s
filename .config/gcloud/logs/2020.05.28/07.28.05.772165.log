@@ -1,0 +1,40 @@
+2020-05-28 07:28:05,779 DEBUG    root            Loaded Command Group: [u'gcloud', u'builds']
+2020-05-28 07:28:05,835 DEBUG    root            Loaded Command Group: [u'gcloud', u'builds', u'submit']
+2020-05-28 07:28:05,879 DEBUG    root            Running [gcloud.builds.submit] with arguments: [--tag: "gcr.io/learning-261705/quickstart-image"]
+2020-05-28 07:28:06,067 DEBUG    root            (gcloud.builds.submit) HTTPError 403: Insufficient Permission
+Traceback (most recent call last):
+  File "/usr/lib64/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 983, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+  File "/usr/lib64/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 807, in Run
+    resources = command_instance.Run(args)
+  File "/usr/lib64/google-cloud-sdk/lib/surface/builds/submit.py", line 146, in Run
+    args.machine_type, args.disk_size)
+  File "/usr/lib64/google-cloud-sdk/lib/googlecloudsdk/command_lib/builds/submit_util.py", line 409, in CreateBuildConfig
+    ignore_file)
+  File "/usr/lib64/google-cloud-sdk/lib/googlecloudsdk/command_lib/builds/submit_util.py", line 289, in _SetSource
+    gcs_client.CreateBucketIfNotExists(gcs_source_staging_dir.bucket)
+  File "/usr/lib64/google-cloud-sdk/lib/googlecloudsdk/api_lib/storage/storage_api.py", line 343, in CreateBucketIfNotExists
+    location=location,
+  File "/usr/lib64/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/storage/v1/storage_v1_client.py", line 315, in Insert
+    config, request, global_params=global_params)
+  File "/usr/lib64/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 731, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+  File "/usr/lib64/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 737, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+  File "/usr/lib64/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 604, in __ProcessHttpResponse
+    http_response, method_config=method_config, request=request)
+HttpForbiddenError: HttpError accessing <https://storage.googleapis.com/storage/v1/b?project=learning-261705&alt=json>: response: <{'status': '403', 'content-length': '236', 'cache-control': 'no-cache, no-store, max-age=0, must-revalidate', 'expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'vary': 'Origin, X-Origin', 'server': 'UploadServer', 'pragma': 'no-cache', 'x-guploader-uploadid': 'AAANsUkpfHES6oo4tvSCE3PWioW94uXwRwAVRzL9cZRSvzXRcd4peWFygy7PuhFoTdNKHXzrVU3GDusZIgV8poOlUvM', 'date': 'Thu, 28 May 2020 07:28:06 GMT', 'content-type': 'application/json; charset=UTF-8', 'www-authenticate': 'Bearer realm="https://accounts.google.com/"'}>, content <{
+  "error": {
+    "code": 403,
+    "message": "Insufficient Permission",
+    "errors": [
+      {
+        "message": "Insufficient Permission",
+        "domain": "global",
+        "reason": "insufficientPermissions"
+      }
+    ]
+  }
+}
+>
+2020-05-28 07:28:06,080 ERROR    root            (gcloud.builds.submit) HTTPError 403: Insufficient Permission
