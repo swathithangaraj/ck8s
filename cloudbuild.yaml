@@ -4,10 +4,10 @@ steps:
   args: ['clone', 'https://github.com/swathithangaraj/newvk8s.git']
 #Build the image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build','-t', 'gcr.io/learning-261705/hello-world:v1.0','-t','gcr.io/learning-261705/html-:latest','.']
+  args: ['build','-t', 'gcr.io/learning-261705/hello-world:v1.0','-t','gcr.io/learning-261705/html-server-image:v1:latest','.']
 #Push the image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push','gcr.io/learning-261705/hello-world:v1.0']
+  args: ['push','gcr.io/learning-261705/html-server-image:v1']
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'k8s/']
   env:
@@ -19,13 +19,13 @@ steps:
            'set',
            'image',
            'deployment',
-           'hello-world',
-           'hello-world=gcr.io/learning-261705/hello-world:v1.0'
+           'html-server-image',
+           'html-server-image=gcr.io/learning-261705/html-server-image:v1'
         ]
   env:
           - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
           - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
 images: [
-   'gcr.io/learning-261705/hello-world:v1.0',
-   'gcr.io/learning-261705/hello-world:latest'
+   'gcr.io/learning-261705/html-server-image:v1:v1.0',
+   'gcr.io/learning-261705/html-server-image:latest'
   ]
