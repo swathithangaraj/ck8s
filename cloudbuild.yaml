@@ -11,7 +11,7 @@ steps:
   args: [
    'build', 
    '-t', 
-   'gcr.io/$PROJECT_ID/html-server-image:v1:$TAG_NAME',
+   'gcr.io/$PROJECT_ID/html-server-image:v1:$BRANCH_NAME-$COMMIT_SHA',
    '-t', 
    'gcr.io/$PROJECT_ID/html-server-image:v1:latest',
    '.'
@@ -29,13 +29,13 @@ steps:
    'image', 
    'deployment', 
    'html-server-image:v1', 
-   'html-server-image:v1=gcr.io/learning-261705/html-server-image:v1:$TAG_NAME'
+   'html-server-image:v1=gcr.io/learning-261705/html-server-image:v1:$BRANCH_NAME-$COMMIT_SHA'
   ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
-# push images to Google Container Registry with tags
+# push images to Google Container Registry with branch
 images: [
-   'gcr.io/$PROJECT_ID/html-server-image:v1:$TAG_NAME',
+   'gcr.io/$PROJECT_ID/html-server-image:v1:$BRANCH_NAME-$COMMIT_SHA',
    'gcr.io/$PROJECT_ID/html-server-image:v1:latest'
   ]
