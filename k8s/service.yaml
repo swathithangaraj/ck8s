@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: html-server-image:v1
+  name: html-server-image
 spec:
   selector:
-     run: html-server-image:v1
+     run: html-server-image
   ports:
   - protocol: TCP
     port: 80
